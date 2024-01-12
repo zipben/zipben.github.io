@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Deck Simulator</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header>
+        <img src="../wnw-logo.png" alt="Logo" class="header-logo">
+    </header>
+
+    <nav class="menu-bar">
+        <ul>
+            <li><a href="../index.html">The Horn</a></li>
+            <li><a href="paths.html">Paths</a></li>
+            <li><a href="histories.html">Histories</a></li>
+            <li>
+                <a href="https://discord.gg/rJjxMRt2G3" class="discord-link">
+                    <img src="../discordLogo.png" alt="Join us on Discord" class="discord-logo">
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <nav class="menu-bar">
+        <ul>
+            <li><a href="core-rules.html">Core Rules</a></li>
+            <li><a href="pnp-files.html">Print and Play Cards</a></li>
+            <li><a href="deck-sim.html"><u>Deck Simulator</u></a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <div class="card-sim-content card">
+            <h2>Card Deck Simulator</h2>
+            <p>
+                <em>Card Deck Simulator</em> is a tool for simulating card draws in tabletop role-playing games. It allows you to create a custom deck, shuffle it, and draw cards to simulate gameplay scenarios.
+            </p>
+            <p>
+                Use the input fields below to set the count for each of the 5 suits: lore, empathy, harmony, grace, and power. You can also take an injury, add a thread, or add an omen to the deck.
+            </p>
+            <div class="column-container">
+                <div class="left-column">
+
+                    <div id="suitCountInputs">
+                        <p><div id="error-box"></div></p>
+                        <table>
+                            <tr>
+                                <td><label for="lore">Lore</label></td>
+                                <td><input type="number" id="lore" min="0" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="empathy">Empathy</label></td>
+                                <td><input type="number" id="empathy" min="0" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="harmony">Harmony</label></td>
+                                <td><input type="number" id="harmony" min="0" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="grace">Grace</label></td>
+                                <td><input type="number" id="grace" min="0" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="power">Power</label></td>
+                                <td><input type="number" id="power" min="0" value="5"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <br>
+
+                </div>
+                <div class="center-column">
+                    <div class="deck-container column-container">
+                        <div class="deck left-column" id="drawPileCount"><img class="progress-card" src="emptyTop.png" alt="*" /></div>
+                        <div class="deck left-column" id="discardPileCount"><img class="progress-card" src="emptyBottom.png" alt="*" /></div>
+                    </div>
+                    <table>
+                        <tr>
+                            <td><label for="injury">Injury</label></td>
+                            <td><input type="number" id="injury" min="0" value="2"></td>
+                            <td>
+                                <button id="addInjurySuit">Take an Injury</button>
+                                <button id="treatInjurySuit">Treat an Injury</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="thread-name">Thread Name:</label></td>
+                            <td><input type="text" id="thread-name"></td>
+                            <td><button id="addThreadSuit">Add a Thread</button></td>
+                        </tr>
+                        <tr>
+                            <td><label for="omen-name">Omen Name:</label></td>
+                            <td><input type="text" id="omen-name"></td>
+                            <td><button id="addOmenSuit">Add an Omen</button></td>
+                        </tr>
+                        <tr>
+                            <td><button id="addRelicSuit">Use your Relic</button></td>
+                        </tr>
+                    </table>
+                    
+                </div>
+                <div class="right-column">
+                    <div class="clicking-div" id="drawnCard">
+                        <img class="drawn-card-image" src="empty-image.png" alt="Empty">
+                        <h2>Empty Discard</h2>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="chunky-button-container">
+                <button class="chunky-button" id="shuffleDeck">Shuffle Deck</button>
+                <button class="chunky-button" id="drawCard">Draw Card</button>
+            </div>
+            <script src="deck-sim.js"></script>
+        </div>      
+    </main>
+</body>
+</html>
