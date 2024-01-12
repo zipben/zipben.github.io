@@ -28,7 +28,7 @@ function createDeck() {
         }
 
         const errorBox = document.getElementById('error-box');
-        errorBox.innerText = 'FUCK';
+        errorBox.innerText = 'Your base deck without threads, omens, or injuries must be 25 cards or less.';
     }
     else {
 
