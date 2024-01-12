@@ -3,12 +3,11 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #2B5F2E; /* Updated background color */
+    background: linear-gradient(to bottom, #524A38, #385E34);
     color: #FFF3E4; /* Updated text color */
 }
 
 header {
-    background-image: url('header-background.png'); /* Your header image */
     background-size: cover;
     background-position: center;
     padding: 20px;
@@ -19,15 +18,35 @@ header {
 }
 
 header h1 {
+    position: relative;
     margin: 0;
     color: #3a5d34; /* Ensuring header text color matches the new text color */
 }
 
-#logo {
+.header-logo {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    height: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjust position to truly center */
+    height: 120px; /* Adjust size as needed */
+    width: auto;
+}
+
+.discord-link {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%); /* Vertically center */
+}
+
+.discord-logo {
+    height: 40px; /* Adjust as needed */
+    width: auto;
+    transition: transform 0.3s ease; /* Smooth transition for the transform */
+}
+
+.discord-link:hover .discord-logo {
+    transform: scale(1.1); /* Enlarge the logo by 10% on hover */
 }
 
 .gradient {
