@@ -1,11 +1,15 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Optima, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(to bottom, #524A38, #385E34);
     color: #FFF3E4; /* Updated text color */
+    min-height: 100vh;
+    animation: rippleEffect 10s ease infinite;
+    background: linear-gradient(-45deg, #988d72, #524A38, #385E34, #7d8f7b);
+    background-size: 400% 400%; 
 }
+
 
 header {
     background-size: cover;
@@ -33,21 +37,16 @@ header h1 {
 }
 
 .discord-link {
-    position: absolute;
     top: 50%;
     right: 30px;
-    transform: translateY(-50%); /* Vertically center */
+    transform: translateY(+10%); /* Vertically center */
 }
 
 .discord-logo {
-    height: 40px; /* Adjust as needed */
+    height: 25px; /* Adjust as needed */
     width: auto;
-    transition: transform 0.3s ease; /* Smooth transition for the transform */
 }
 
-.discord-link:hover .discord-logo {
-    transform: scale(1.1); /* Enlarge the logo by 10% on hover */
-}
 
 .gradient {
     height: 20px;
@@ -73,35 +72,88 @@ main {
     margin-bottom: 10px;
 }
 
-/* Example Media Queries */
-@media (max-width: 600px) {
-    .flex-item {
-        flex: 1 1 100%; /* Full width on small screens */
+.main-content h3 { 
+    margin-left: 30px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.main-content .sub-content {
+    font-style: italic;
+    margin-left: 35px;
+}
+
+.card {
+    border: 2px solid rgba(255, 243, 228, 0.25); /* Border with 25% opacity and color #FFF3E4 */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 10px;
+}
+
+.menu-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.menu-bar li {
+    display: inline;
+}
+
+.menu-bar li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: transform 0.3s ease; /* Smooth transition for the transform */
+    animation: drift 5s infinite alternate;
+}
+
+.menu-bar li a:hover {
+    transform: scale(1.1); /* Enlarge the link by 10% on hover */
+}
+
+hr {
+    border: 0; /* Removes default border */
+    height: 2px; /* Thickness of the HR line */
+    background-color: #FFF3E4; /* Change this to your desired color */
+    margin: 20px 0; /* Space above and below the HR */
+}
+
+.pdf-link, p {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pdf-link, a {
+    margin-top: 10px;
+}
+.card a {
+    color: #FFF3E4;
+    transition: transform 0.3s ease; /* Smooth transition for the transform */
+}
+
+.card a:hover {
+    transform: scale(1.02); /* Enlarge the logo by 10% on hover */
+}
+
+p {
+    margin-left: 10px;
+    width: calc(100% - 40px); /* Adjust the width to account for the icon */
+}
+
+@keyframes rippleEffect {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 
-@media (min-width: 601px) and (max-width: 800px) {
-    .flex-item {
-        flex: 1 1 50%; /* Two columns on medium screens */
-    }
-}
 
-@media (min-width: 801px) {
-    .flex-item {
-        flex: 1 1 33.33%; /* Three columns on large screens */
-    }
-}
-
-
-
-/* Responsive design */
-@media screen and (max-width: 600px) {
-    header h1, #logo {
-        text-align: left;
-    }
-
-    #logo {
-        position: static;
-        margin: 10px 0;
-    }
-}
