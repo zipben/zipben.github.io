@@ -101,14 +101,27 @@
                 <div class="right-column">
                     <div class="clicking-div" id="drawnCard">
                         <img class="drawn-card-image" src="empty-image.png" alt="Empty">
-                        <h2>Empty Discard</h2>
+                        <button class="nav-button back-button">←</button>
+                        <button class="nav-button forward-button">→</button>
                     </div>
                    
                 </div>
             </div>
-            <div class="chunky-button-container">
-                <button class="chunky-button" id="shuffleDeck">Shuffle Deck</button>
-                <button class="chunky-button" id="drawCard">Draw Card</button>
+            <div class="column-container">
+
+                <div class="left-column"></div>
+                <div class="center-column">
+                    <div class="chunky-button-container">
+                        <button class="chunky-button" id="shuffleDeck">Shuffle Deck</button>
+                        <button class="chunky-button" id="drawCard">Draw Card</button>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <div class="chunky-button-container">
+                        <button class="chunky-button-min" id="shuffleDeck">B</button>
+                        <button class="chunky-button-min" id="drawCard">F</button>
+                    </div>
+                </div>    
             </div>
             <script src="deck-sim.js"></script>
         </div>      

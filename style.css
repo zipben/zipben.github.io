@@ -14,7 +14,7 @@ body {
 header {
     background-size: cover;
     background-position: center;
-    padding: 20px;
+    padding: 0px;
     text-align: center;
     position: relative;
     height: 150px;
@@ -84,8 +84,8 @@ main {
 }
 
 .drawn-card-image {
-    height: 200px;
-    width: auto;
+    width: 100%;
+    height: auto;
 }
 
 .deck {
@@ -150,12 +150,36 @@ main {
 }
 
 .clicking-div {
+    position: relative;
     transition: transform 0.3s ease;
 }
 .clicking-div:hover {
     transform: scale(1.1); /* Enlarge the link by 10% on hover */
     cursor: pointer;
     
+}
+.nav-button {
+    position: absolute;
+    top: 50%; /* Position halfway up */
+    transform: translateY(-50%); /* Center vertically at the position */
+    height: 50px; /* Adjust as needed */
+    width: auto;
+    border-radius: 15%;
+}
+
+.card-title {
+    position: absolute;
+    top: 10%;
+    color: blue;
+    text-align: center;
+}
+
+.back-button {
+    left: 10px; /* Adjust as needed for spacing from the left edge */
+}
+
+.forward-button {
+    right: 10px; /* Adjust as needed for spacing from the right edge */
 }
 
 hr {
@@ -226,6 +250,22 @@ p {
     border: solid, #FFF3E4; /* Removes the border */
     border-radius: 5px; /* Rounds the corners of the button */
     width: 200px;
+    /* Adding a hover effect */
+    transition: background-color 0.3s; /* Smooth transition for the hover effect */
+}
+
+.chunky-button-min {
+    padding: 15px 30px; /* Increases the padding to make the buttons chunkier */
+    font-size: 18px; /* Increases the font size for better visibility */
+    margin: 10px; /* Adds some space around each button */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
+
+    /* Optional: Add more styles for aesthetics */
+    background-color: #385E34; /* A green background color */
+    color: #FFF3E4; /* White text color */
+    border: solid, #FFF3E4; /* Removes the border */
+    border-radius: 5px; /* Rounds the corners of the button */
+    width: 50px;
     /* Adding a hover effect */
     transition: background-color 0.3s; /* Smooth transition for the hover effect */
 }

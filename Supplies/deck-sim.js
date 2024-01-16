@@ -143,6 +143,34 @@ function removeTopCardFromDiscardPile() {
     discardPile.pop();
     const card = discardPile.pop(); // Get the top card from the discard pile
 
+    let cardDetails = getCardDetails(card);
+    // Map the card value to an image
+    let imagePath = cardDetails.imagePath; // Initialize imagePath variable
+
+    document.getElementById('drawnCard').innerHTML = `<img class="drawn-card-image" src="${imagePath}" alt="${card}"><button class="nav-button back-button">←</button>`;
+    updateDrawPileCount();
+}
+
+// Function to draw a card
+function drawCard() {
+    if (drawPile.length === 0) {
+        alert('No more cards in the draw pile. Shuffle or reset the deck.');
+        return;
+    }
+    const card = drawPile.pop();
+    discardPile.push(card);
+
+    let cardDetails = getCardDetails(card);
+    // Map the card value to an image
+    let imagePath = cardDetails.imagePath; // Initialize imagePath variable
+
+    // Set the drawnCard element to contain the image and card title
+    document.getElementById('drawnCard').innerHTML = `<img class="drawn-card-image" src="${imagePath}" alt="${card}"><button class="nav-button back-button">←</button>
+    <button class="nav-button forward-button">→</button>`;
+    updateDrawPileCount();
+}
+
+function getCardDetails(card) {
     let imagePath = '';
     let cardTitle = '';
 
@@ -178,55 +206,7 @@ function removeTopCardFromDiscardPile() {
         cardTitle = card;
     }
 
-    document.getElementById('drawnCard').innerHTML = `<img class="drawn-card-image" src="${imagePath}" alt="${card}"> <h2>${cardTitle}</h2>`;
-    updateDrawPileCount();
-}
-
-// Function to draw a card
-function drawCard() {
-    if (drawPile.length === 0) {
-        alert('No more cards in the draw pile. Shuffle or reset the deck.');
-        return;
-    }
-    const card = drawPile.pop();
-    discardPile.push(card);
-
-    // Map the card value to an image
-    let imagePath = '';
-    let cardTitle = ''; // Initialize cardTitle variable
-
-    if (card === 'lore') {
-        imagePath = 'lore-image.png';
-        cardTitle = 'Lore'; // Set cardTitle for 'lore'
-    } else if (card === 'harmony') {
-        imagePath = 'harmony-image.png';
-        cardTitle = 'Harmony'; // Set cardTitle for 'harmony'
-    } else if (card === 'empathy') {
-        imagePath = 'empathy-image.png';
-        cardTitle = 'Empathy'; // Set cardTitle for 'empathy'
-    } else if (card === 'grace') {
-        imagePath = 'grace-image.png';
-        cardTitle = 'Grace'; // Set cardTitle for 'grace'
-    } else if (card === 'power') {
-        imagePath = 'power-image.png';
-        cardTitle = 'Power'; // Set cardTitle for 'power'
-    } else if (card.startsWith('Thread')) {
-        imagePath = 'thread-image.png';
-        cardTitle = card.charAt(0).toUpperCase() + card.slice(1);
-    } else if (card.startsWith('Omen')) {
-        imagePath = 'omen-image.png';
-        cardTitle = cardTitle = card.charAt(0).toUpperCase() + card.slice(1);
-    } else if (card.startsWith('Injury')) {
-        imagePath = 'injury-image.png';
-        cardTitle = cardTitle = card.charAt(0).toUpperCase() + card.slice(1);
-    } else {
-        imagePath = 'empty-image.png';
-        cardTitle = card; // Set cardTitle for other cards
-    }
-
-    // Set the drawnCard element to contain the image and card title
-    document.getElementById('drawnCard').innerHTML = `<img class="drawn-card-image" src="${imagePath}" alt="${card}"> <h2>${cardTitle}</h2>`;
-    updateDrawPileCount();
+    return { imagePath, cardTitle };
 }
 
 // Function to shuffle the discard pile back into the deck
@@ -239,7 +219,7 @@ function shuffleDeck() {
         [drawPile[i], drawPile[j]] = [drawPile[j], drawPile[i]]; // Swap elements
     }
 
-    document.getElementById('drawnCard').innerHTML = `<img class="drawn-card-image" src="empty-image.png" alt="empty"> <h2>Empty Discard</h2>`;
+    document.getElementById('drawnCard').innerHTML = `<img class="drawn-card-image" src="empty-image.png" alt="empty"> <button class="nav-button back-button">←</button>`;
     updateDrawPileCount();
 }
 
